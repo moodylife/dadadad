@@ -14,6 +14,8 @@
     "snekfetch": "^4.0.4",
     "dateformat": "^3.0.3",
     "discord.js": "^11.3.2",
+    "math-expression-evaluator": "^1.2.17",
+    "common-tags": "^1.8.0",
     "express": "^4.16.3",
     "ffmpeg": "0.0.4",
     "ffmpeg-binaries": "^3.2.2-3",
