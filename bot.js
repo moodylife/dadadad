@@ -1175,4 +1175,6 @@ if(cmd === `${prefix}coins`) {
 
   message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
 }
-});client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
+});
+
+client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
