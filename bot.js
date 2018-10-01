@@ -1055,7 +1055,7 @@ const secre = [
 
 bot.on("guildMemberAdd", async member => {
   let welcomechannel = member.guild.channels.find(c => c.name === "𝐿𝑒𝑔𝑒𝓃𝒹𝒶𝓇𝓎")
-  welcomechannel.send((<@${member.id}>) Welcome to server \~ (${member.guild.name})``)
+  welcomechannel.send(`(<@${member.id}>) Welcome to server \~ (${member.guild.name})``)
 });
 
 client.login(process.env.BOT_TOKEN); 
