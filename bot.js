@@ -1052,8 +1052,10 @@ const secre = [
 
   
 
-client.login(process.env.BOT_TOKEN);  //لا تحط التوكن حقك هنا
+
 bot.on("guildMemberAdd", async member => {
-  let 𝐿𝑒𝑔𝑒𝓃𝒹𝒶𝓇𝓎 = member.guild.channels.find(c => c.name === "logs")
-  𝐿𝑒𝑔𝑒𝓃𝒹𝒶𝓇𝓎.send((<@${member.id}>) Welcome to server \~ (${member.guild.name})``)
+  let welcomechannel = member.guild.channels.find(c => c.name === "𝐿𝑒𝑔𝑒𝓃𝒹𝒶𝓇𝓎")
+  welcomechannel.send((<@${member.id}>) Welcome to server \~ (${member.guild.name})``)
 });
+
+client.login(process.env.BOT_TOKEN); 
