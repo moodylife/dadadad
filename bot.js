@@ -1056,3 +1056,8 @@ const secre = [
 
 
 client.login(process.env.BOT_TOKEN); 
+client.on("message", message => {
+if(message.content === ".") {
+message.channel.send("Welcome To .LegndaryCom ™ :champagne_glass: .");
+}
+});
