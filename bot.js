@@ -1061,3 +1061,23 @@ if(message.content === ".") {
 message.channel.send("Welcome To .LegndaryCom ™ :champagne_glass: .");
 }
 });
+client.on("message", message => {
+if(message.content === "مودي") {
+message.channel.send("ايه ي نقم عايز ايه  :champagne_glass: .");
+}
+});
+client.on("message", message => {
+if(message.content === "هاي") {
+message.channel.send("باي");
+}
+});
+client.on("message", message => {
+if(message.content === "برب") {
+message.channel.send("تيت مطولش");
+}
+});
+client.on("message", message => {
+if(message.content === "هلا") {
+message.channel.send("هلا بيك حبي");
+}
+});
