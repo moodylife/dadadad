@@ -1083,7 +1083,7 @@ message.channel.send("هلا بيك حبي");
 });
 Lion.on("message", async message => {
         if(!message.channel.guild) return;
-        if(message.content.startsWith(prefix s! 'server')) {
+        if(message.content.startsWith(prefix + 'server')) {
         let guild = message.guild
         let members = guild.memberCount
         let bots = guild.members.filter(m => m.user.bot).size
