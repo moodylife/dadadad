@@ -1068,7 +1068,7 @@ message.channel.send("ايه ي نقم عايز ايه  :champagne_glass: .");
 });
 client.on("message", message => {
 if(message.content === "هاي") {
-message.channel.send("باي");
+message.channel.send("هاين:rose: ");
 }
 });
 client.on("message", message => {
