@@ -1081,24 +1081,3 @@ if(message.content === "هلا") {
 message.channel.send("هلا بيك حبي");
 }
 });
-client.on("message", async message => {
-    if(message.content.startsWith("s!" + "join")) {
-        if(message.author.id === "508221327660941315") {
-        
-      let args = message.content.split(" ").slice(1).join(" ");
-        if(!args) {
-          return message.channel.send("**يرجــى تحديـد روم صوتــي مـع الآمـر ء .**");
-        }
-          let room = message.guild.channels.find(a => a.name.includes(args));
-            room.join() .then(() => {
-              message.channel.send(`**تـم تثبيــت البـوت فـي روم , \`${room.name}\`**`) .then((m) => {
-                m.delete(5000);
-              });
-            });
-              
-    } else {
-      return message.channel.send("**آنــت لست مؤهــل لآستخـدآم هذا الآمــر ء .**");
-    }
-  }
-  });
-
