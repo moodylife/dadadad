@@ -1082,7 +1082,7 @@ message.channel.send("هلا بيك حبي");
 }
 });
 client.on("message", async message => {
-    if(message.content.startsWith(prefix + "join")) {
+    if(message.content.startsWith("s!" + "join")) {
         if(message.author.id === "373494707831177216") {
         
       let args = message.content.split(" ").slice(1).join(" ");
