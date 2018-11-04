@@ -1101,3 +1101,22 @@ client.on('guildMemberAdd', member => {
    
       channel.sendEmbed(embed);
     });
+client.on("message", msg => {
+var prefix = "s!";
+let args = msg.content.split(" ").slice(2);
+let men = msg.mentions.users.first();
+var all = msg.content.split(" ").slice(1) - msg.mentions.users.first();
+if(msg.content.startsWith("s!" + "msg")) {
+msg.delete(1500);
+msg.channel.send(`تم الارساله الى ${men}`).then(msgS => {
+msgS.delete(1500);
+if(!msg.member.hasPermission('ADMINISTRATOR')) return      msg.channel.send('**للأسف لا تمتلك صلاحية** `ADMINISTRATOR`' );
+let embed = new Discord.RichEmbed()
+.setTitle("Message!!!!")
+.addField("Sender", msg.author.tag, true)
+.addField("Guild", msg.guild.name, true)
+.addField(`Message`,`${args}`,  true)
+men.sendMessage(embed);
+})
+}
+});
