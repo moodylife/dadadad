@@ -1120,3 +1120,53 @@ men.sendMessage(embed);
 })
 }
 });
+client.on ("guildMemberAdd", member => {
+
+   var role = member.guild.roles.find ("name", ".#-PrestigeR .,");
+   member.addRole (role);
+
+})
+
+client.on ("guildMemberRemove", member => {
+
+})
+var dat = JSON.parse(fs.readFileSync('./invite.json', 'utf8'));
+function forEachObject(obj, func) {
+    Object.keys(obj).forEach(function (key) { func(key, obj[key]) })
+}
+client.on("ready", () => {
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("499955125146746890")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            dat[Inv] = Invite.uses;
+        })
+    })
+})
+client.on("guildMemberAdd", (member) => {
+    let channel = member.guild.channels.find('name', 'txt');
+    if (!channel) {
+        console.log("!channel fails");
+        return;
+    }
+    if (member.id == client.user.id) {
+        return;
+    }
+    console.log('made it till here!');
+    var guild;
+    while (!guild)
+        guild = client.guilds.get("492096077298794506")
+    guild.fetchInvites().then((data) => {
+        data.forEach((Invite, key, map) => {
+            var Inv = Invite.code;
+            if (dat[Inv])
+                if (dat[Inv] < Invite.uses) {
+                    console.log(3);
+ channel.send(`${member} Joined By ${Invite.inviter}'s invite ${Invite.code} | invited by ${Invite.inviter}`)
+ }
+            dat[Inv] = Invite.uses;
+        })
+    })
+});
