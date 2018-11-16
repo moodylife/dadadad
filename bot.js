@@ -1061,26 +1061,7 @@ if(message.content === ".") {
 message.channel.send("Welcome To .Prestige ™ :champagne_glass: .");
 }
 });
-client.on("message", message => {
-if(message.content === "مودي") {
-message.channel.send("ايه ي نقم عايز ايه  :champagne_glass: .");
-}
-});
-client.on("message", message => {
-if(message.content === "هاي") {
-message.channel.send("هاين:rose: ");
-}
-});
-client.on("message", message => {
-if(message.content === "برب") {
-message.channel.send("تيت مطولش");
-}
-});
-client.on("message", message => {
-if(message.content === "هلا") {
-message.channel.send("هلا بيك حبي");
-}
-});
+
 client.on('guildMemberAdd', member => {
     let channel = member.guild.channels.find('name', 'préstige');
     let memberavatar = member.user.avatarURL
@@ -1130,3 +1111,52 @@ client.on ("guildMemberAdd", member => {
 client.on ("guildMemberRemove", member => {
 
 })
+client.on("message", (message) => {
+    /// DREAM
+   if (message.content.startsWith("$new")) {     /// DREAM
+        const reason = message.content.split(" ").slice(1).join(" ");     /// DREAM
+        if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
+        if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
+        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+            let role = message.guild.roles.find("name", "Support Team");
+            let role2 = message.guild.roles.find("name", "@everyone");
+            c.overwritePermissions(role, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });    /// ALPHA CODES
+            c.overwritePermissions(role2, {
+                SEND_MESSAGES: false,
+                READ_MESSAGES: false
+            });
+            c.overwritePermissions(message.author, {
+                SEND_MESSAGES: true,
+                READ_MESSAGES: true
+            });
+            message.channel.send(`:white_check_mark: تم انشاء تذكرتك, #${c.name}.`);
+            const embed = new Discord.RichEmbed()
+                .setColor(0xCF40FA)
+                .addField(`Hey ${message.author.username}!`, `تم فتح تذكرة الرجاء انتظار الى حين يأتي مشرف ويقوم بلرد عليك`)
+                .setTimestamp();
+            c.send({
+                embed: embed
+            });
+        }).catch(console.error);
+    }
+ 
+ 
+  if (message.content.startsWith("$close")) {
+        if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
+ 
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب $confirm`)
+           .then((m) => {
+               message.channel.awaitMessages(response => response.content === '$confirm', {
+                       max: 1,
+                       time: 10000,
+                       errors: ['time'],
+                   })    /// DREAM
+                   .then((collected) => {
+                       message.channel.delete();
+                   })    /// DREAM
+                   .catch(() => {
+                       m.edit('Ticket close timed out, the ticket was not closed.').then(m2 => {
+                           
