@@ -1113,11 +1113,11 @@ client.on ("guildMemberRemove", member => {
 })
 client.on("message", (message) => {
     /// DREAM
-   if (message.content.startsWith("$new")) {     /// DREAM
+   if (message.content.startsWith("s!new")) {     /// DREAM
         const reason = message.content.split(" ").slice(1).join(" ");     /// DREAM
         if (!message.guild.roles.exists("name", "Support Team")) return message.channel.send(`لازم تسوي رتبة اسمها \`Support Team\` وتنطي البوت ادمنيتر حتا يقدر يسوي الرومات ويعدل برمشنات`);
         if (message.guild.channels.exists("name", "ticket-{message.author.id}" + message.author.id)) return message.channel.send(`You already have a ticket open.`);    /// ALPHA CODES
-        message.guild.createChannel(`ticket-${message.author.username}`, "text").then(c => {
+        message.guild.createChannel(`ticket-s!{message.author.username}`, "orders").then(c => {
             let role = message.guild.roles.find("name", "Support Team");
             let role2 = message.guild.roles.find("name", "@everyone");
             c.overwritePermissions(role, {
@@ -1144,12 +1144,12 @@ client.on("message", (message) => {
     }
  
  
-  if (message.content.startsWith("$close")) {
+  if (message.content.startsWith("s!close")) {
         if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`You can't use the close command outside of a ticket channel.`);
  
-       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب $confirm`)
+       message.channel.send(`هل انت متأكد من اقفالك للتذكرة اذا متأكد اكتب s!confirm`)
            .then((m) => {
-               message.channel.awaitMessages(response => response.content === '$confirm', {
+               message.channel.awaitMessages(response => response.content === 's!confirm', {
                        max: 1,
                        time: 10000,
                        errors: ['time'],
