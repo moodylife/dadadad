@@ -3,7 +3,7 @@ const client = new Discord.Client();
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
- client.user.setGame('s!help | *By iTzMoody','https://www.twitch.tv/peery13');
+ client.user.setGame('~SquáaashSys .,','https://www.twitch.tv/peery13');
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
@@ -1058,7 +1058,7 @@ const secre = [
 client.login(process.env.BOT_TOKEN); 
 client.on("message", message => {
 if(message.content === ".") {
-message.channel.send("**Welcome To .Prestige ™...:champagne_glass: **");
+message.channel.send("**Welcome To Squáash Server Have Fun :wine_glass::blue_heart: **");
 }
 });
 
@@ -1103,7 +1103,7 @@ men.sendMessage(embed);
 });
 client.on ("guildMemberAdd", member => {
 
-   var role = member.guild.roles.find ("name", ".#-PrestigeR .,");
+   var role = member.guild.roles.find ("name", ".Squáash . !");
    member.addRole (role);
 
 })
