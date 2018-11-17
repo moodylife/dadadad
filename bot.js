@@ -1063,7 +1063,7 @@ message.channel.send("**Welcome To Squáash Server Have Fun :wine_glass::blue_he
 });
 
 client.on('guildMemberAdd', member => {
-    let channel = member.guild.channels.find('name', 'préstige');
+    let channel = member.guild.channels.find('name', 'squáaash');
     let memberavatar = member.user.avatarURL
       if (!channel) return;
     let embed = new Discord.RichEmbed()
