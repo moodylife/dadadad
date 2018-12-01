@@ -1,9 +1,20 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
+client.on('ready', function(){
+    var ms = 10000 ;
+    var setGame = [' Squaashsys 🍇 ' ];
+    var i = -1;
+    var j = 0;
+    setInterval(function (){
+        if( i == -1 ){
+            j = 1;
+        }
+        if( i == (setGame.length)-1 ){
+            j = -1;
+        }
+        i = i+j;
+        client.user.setGame(setGame[i],`https://www.twitch.tv/n3k4a`);
+    }, ms);
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
- client.user.setGame('~SquáaashSys .,','https://www.twitch.tv/peery13');
+})
   console.log('')
   console.log('')
   console.log('╔[═════════════════════════════════════════════════════════════════]╗')
