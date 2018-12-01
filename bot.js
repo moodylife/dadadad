@@ -1108,4 +1108,13 @@ client.on ("guildMemberAdd", member => {
 
 })
 
- 
+ bot.on("voiceStateUpdate") (o,n) => {
+  var channel = client.channels.get('513395842636447758')
+  if(channel) {
+    if(channel.guild.id == n.guild.id) {
+      channel.edit({
+        name: `Voice online [${n.guild.members.filter(m => m.voiceChannel)}]`
+      });
+    };
+  };
+});
