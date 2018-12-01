@@ -1108,13 +1108,15 @@ client.on ("guildMemberAdd", member => {
 
 })
 
- bot.on("voiceStateUpdate") (o,n) => {
-  var channel = client.channels.get('513395842636447758')
-  if(channel) {
-    if(channel.guild.id == n.guild.id) {
-      channel.edit({
-        name: `Voice online [${n.guild.members.filter(m => m.voiceChannel)}]`
-      });
-    };
-  };
-});
+ client.on('message', message => {
+    if (message.content.startsWith('say')) {
+            var args = message.content.split(" ").join(" ").slice(message.content.split(" ")[0].length);
+            if (args.length<= 0 || !args) return message.reply("**ار يو سكران ؟**"); undefined;
+            message.channel.createWebhook(message.author.username,message.author.avatarURL).then(async webhook => {
+                    await webhook.send(args);
+                    await webhook.delete();
+                    return undefined;
+        });
+    }
+})
+
